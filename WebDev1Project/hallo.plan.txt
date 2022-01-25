@@ -1,0 +1,25 @@
+De Goodreads voor Pretparken
+
+Voor dit project wil ik een soort Goodreads voor pretparken maken. Goodreads geeft gebruikers de mogelijkheid om gelezen boeken bij te houden, hier informatie
+over te verstrekken en hun profielen te delen met anderen. Voor mijn versie wil ik graag een soortgelijke functie te leveren, maar dan voor het bijhouden van bezochte
+pretparken.
+
+Het delen met andere gebruikers zou een interessante uitdaging zou kunnen zijn, maar ik ben niet zeker over het tijdig realiseren van deze functie. Ik zou graag met de
+docent bespreken hoe ik het beste de accounts kan maken en misschien die data met elkaar te laten delen. Ik weet nog niet of ik iets als een shopping cart-functie
+wil gaan gebruiken.
+
+De belangrijkste functionaliteit van deze website zal het bijhouden van bezochte pretparken zijn, daarnaast is het mogelijk om informatie over de parken, via
+interne info of, waar nodig, een externe link, te verkrijgen. Door het gebruik van een CSS framework wil ik de website toegankelijk maken voor de gemiddelde
+parkbezoeker. Ik heb nog niet eerder gewerkt met een CSS Framework, maar dit zal waarschijnlijk Bootstrap worden.
+
+Primaire functies
+Lijst van parken in kunnen zien
+Filteren op soort, naam, etc.
+Aangeven welke parken bezocht zijn
+Info over websites inzien
+Account aanmaken
+Inloggen
+
+Secundaire functies
+Sociale mogelijkheden tussen accounts
+Individuele unieke attracties per park in een lijst aangeven

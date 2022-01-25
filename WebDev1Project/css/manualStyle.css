@@ -1,0 +1,22 @@
+/*Hide the homeview confirmation popup and set it's width */
+#confirmPopup {
+    visibility: hidden;
+    width:12%;
+}
+
+/* Space table and set the width as necessary*/
+#mainTable {
+    width:70%;
+    margin: 2rem auto 0;
+}
+
+/* Sanitize a href so it's not 2002 style link */
+.clean-link {
+    color: #000000;
+    text-decoration: none;
+}
+
+/* Set the width for the login buttons so they match */
+.logFormBtn {
+    width:5em;
+}
