@@ -15,13 +15,13 @@ try {
 }
 
 try {
-    $conn->query("CREATE TABLE park (
+    /*$conn->query("CREATE TABLE park (
     id SERIAL NOT NULL,
     name varchar(50) NOT NULL,
     type varchar(30) NOT NULL,
     province varchar(20) NOT NULL,
      PRIMARY KEY (id)
-    )");
+    )"); */
 
     $conn->query("CREATE TABLE info (
     parkId int NOT NULL,
