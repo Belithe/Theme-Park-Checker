@@ -19,7 +19,7 @@ class DataSaver {
     //Create a new user with the given username and password, ID is auto generated
     public function createNewUser($username, $password) {
         try {
-            $statement = $this->SQLdb->prepare('INSERT INTO `user` (`username`, `password`) VALUES (:name, :pass)');
+            $statement = $this->SQLdb->prepare('INSERT INTO users (username, password) VALUES (:name, :pass)');
             $statement->bindParam(':name', $username);
             $statement->bindParam(':pass', $password);
 
@@ -33,13 +33,16 @@ class DataSaver {
     //Create or update user's visited park entries
     public function saveVisitedSettings($userId, $checked) {
         try {
-            $statement = $this->SQLdb->prepare('INSERT INTO `user_park_checks` (`parkId`, `userId`, `visited`) VALUES (:parkId, :userId, :visited) ON DUPLICATE KEY UPDATE `visited` = :visited');
+            $statement = $this->SQLdb->prepare('INSERT INTO user_park_checks (parkId, userId, visited) VALUES (:parkId, :userId, :visited) ON DUPLICATE KEY UPDATE visited = :visited');
 
             $statement->bindParam(':userId', $userId);
 
             foreach($checked as $key => $bool) {
                 $parkId = substr($key, 0, 1);
-                $visited = $bool;
+                $visited = false;
+                if($bool == 1) {
+                    $visited = true;
+                }
 
                 $statement->bindParam(':parkId', $parkId);
                 $statement->bindParam(':visited', $visited);

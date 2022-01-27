@@ -19,7 +19,7 @@ class DataLoader {
     //Select statement requests
     //Select all parks
     private function selectParks() {
-        $statement = $this->SQLdb->prepare('SELECT * FROM `park`');
+        $statement = $this->SQLdb->prepare('SELECT * FROM park');
 
         $statement->execute();
         return $statement;
@@ -32,7 +32,7 @@ class DataLoader {
     private function selectParkById() {
         $requestedId = htmlspecialchars($_GET["id"]);
 
-        $statement = $this->SQLdb->prepare('SELECT * FROM `park` WHERE `id` = :id');
+        $statement = $this->SQLdb->prepare('SELECT * FROM park WHERE id = :id');
         $statement->bindParam(':id', $requestedId);
 
         $statement->execute();
@@ -45,7 +45,7 @@ class DataLoader {
     private function selectInfoById() {
         $requestedId = htmlspecialchars($_GET["id"]);
 
-        $statement = $this->SQLdb->prepare('SELECT * FROM `info` WHERE `parkId` = :id');
+        $statement = $this->SQLdb->prepare('SELECT * FROM info WHERE parkId = :id');
         $statement->bindParam(':id', $requestedId);
 
         $statement->execute();
@@ -57,7 +57,7 @@ class DataLoader {
 
     //Select a user matching the given username
     private function selectMatchingUser($username) {
-        $statement = $this->SQLdb->prepare('SELECT * FROM `user` WHERE `username` = :name');
+        $statement = $this->SQLdb->prepare('SELECT * FROM users WHERE username = :name');
         if(!empty($statement)) {
             $statement->bindParam(':name', $username);
 
@@ -72,7 +72,7 @@ class DataLoader {
     private function getVisitedSettings($userId) {
         $requestedId = htmlspecialchars($userId);
 
-        $statement = $this->SQLdb->prepare('SELECT * FROM `user_park_checks` WHERE `userId` = :id');
+        $statement = $this->SQLdb->prepare('SELECT * FROM user_park_checks WHERE userId = :id');
         $statement->bindParam(':id', $requestedId);
 
         $statement->execute();
