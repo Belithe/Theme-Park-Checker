@@ -1,1 +1,1 @@
-web: vendor/bin/heroku-php-apache2 WebDev1Project/BaseHTML/
+web: vendor/bin/heroku-php-apache2 WebDev1Project/
