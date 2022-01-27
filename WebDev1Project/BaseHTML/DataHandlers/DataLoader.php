@@ -12,7 +12,7 @@ class DataLoader {
         $dbConfig = getDBconfig();
         //mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         //$this->SQLdb = new mysqli('localhost', 'test', 'hackerman', 'themeparkdb');
-        $this->SQLdb = new PDO("mysql:host=$dbConfig[0];dbname=$dbConfig[3]", $dbConfig[1], $dbConfig[2]);
+        $this->SQLdb = new PDO("$dbConfig[4]:host=$dbConfig[0];dbname=$dbConfig[3]", $dbConfig[1], $dbConfig[2]);
     }
 
 
