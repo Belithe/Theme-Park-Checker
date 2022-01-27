@@ -32,7 +32,7 @@ try {
     )");
 
     $conn->query("CREATE TABLE users (
-     id int(2) NOT NULL AUTO_INCREMENT,
+     id SERIAL NOT NULL,
      username varchar(255) NOT NULL,
      password varchar(255) NOT NULL,
      PRIMARY KEY (id)
