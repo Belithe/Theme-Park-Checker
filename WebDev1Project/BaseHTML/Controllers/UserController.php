@@ -1,8 +1,8 @@
 <?php
 
-    require_once $_SERVER['DOCUMENT_ROOT'].'/WebDev1Project/BaseHTML/DataHandlers/DataLoader.php';
-    require_once $_SERVER['DOCUMENT_ROOT'].'/WebDev1Project/BaseHTML/DataHandlers/DataSaver.php';
-    include_once $_SERVER['DOCUMENT_ROOT'].'/WebDev1Project/BaseHTML/Models/User.php';
+    require_once '../DataHandlers/DataLoader.php';
+    require_once '../DataHandlers/DataSaver.php';
+    include_once '../Models/User.php';
 
     class UserController {
         protected $loader;

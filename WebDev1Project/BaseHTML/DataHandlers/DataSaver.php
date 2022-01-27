@@ -1,19 +1,27 @@
 <?php
 
+require_once("dbconfig.php");
+
 class DataSaver {
 
+    protected $SQLdb;
+
     function __construct() {
-        // PDO instead of MySqli? Might not work on Heroku otherwise TODO
-        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-        $this->SQLdb = new mysqli('localhost', 'test', 'hackerman', 'themeparkdb');
+            // PDO instead of MySqli? Might not work on Heroku otherwise TODO
+            $dbConfig = getDBconfig();
+            //mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+            //$this->SQLdb = new mysqli('localhost', 'test', 'hackerman', 'themeparkdb');
+            $this->SQLdb = new PDO("mysql:host=$dbConfig[0];dbname=$dbConfig[3]", $dbConfig[1], $dbConfig[2]);
+
     }
 
     //Insert or update requests
     //Create a new user with the given username and password, ID is auto generated
     public function createNewUser($username, $password) {
         try {
-            $statement = $this->SQLdb->prepare('INSERT INTO `user` (`username`, `password`) VALUES (?,?)');
-            $statement->bind_param('ss', $username, $password);
+            $statement = $this->SQLdb->prepare('INSERT INTO `user` (`username`, `password`) VALUES (:name, :pass)');
+            $statement->bindParam(':name', $username);
+            $statement->bindParam(':pass', $password);
 
             $statement->execute();
             return true;
@@ -25,12 +33,16 @@ class DataSaver {
     //Create or update user's visited park entries
     public function saveVisitedSettings($userId, $checked) {
         try {
-            $statement = $this->SQLdb->prepare('INSERT INTO `user_park_checks` (`parkId`, `userId`, `visited`) VALUES (?,?,?) ON DUPLICATE KEY UPDATE `visited` = ?');
-            $statement->bind_param('iiii', $parkId, $userId, $visited, $visited);
+            $statement = $this->SQLdb->prepare('INSERT INTO `user_park_checks` (`parkId`, `userId`, `visited`) VALUES (:parkId, :userId, :visited) ON DUPLICATE KEY UPDATE `visited` = :visited');
+
+            $statement->bindParam(':userId', $userId);
 
             foreach($checked as $key => $bool) {
                 $parkId = substr($key, 0, 1);
                 $visited = $bool;
+
+                $statement->bindParam(':parkId', $parkId);
+                $statement->bindParam(':visited', $visited);
 
                 $statement->execute();
             }

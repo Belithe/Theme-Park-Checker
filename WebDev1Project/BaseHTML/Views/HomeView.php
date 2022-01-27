@@ -9,8 +9,8 @@
 <?php
     //load necessary controllers and start session
 
-    include $_SERVER['DOCUMENT_ROOT'].'/WebDev1Project/BaseHTML/Controllers/ParkController.php';
-    include $_SERVER['DOCUMENT_ROOT'].'/WebDev1Project/BaseHTML/Controllers/UserController.php';
+    include '../Controllers/ParkController.php';
+    include '../Controllers/UserController.php';
 
     session_start();
 
@@ -40,7 +40,7 @@
 <!--Create form with table with as many rows as needed, generation of rows handled by Park Controller, sends save post request to self to handle at top  -->
 <section class="text-center">
     <form method="POST" target="_self">
-        <table id="mainTable " class="table table-bordered table-responsive-sm table-striped ">
+        <table id="mainTable" class="table table-bordered table-responsive-sm table-striped ">
             <tr>
                 <td class="fw-bold">Name</td>
                 <td class="fw-bold">Type</td>

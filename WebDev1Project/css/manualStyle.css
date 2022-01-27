@@ -7,7 +7,7 @@
 /* Space table and set the width as necessary*/
 #mainTable {
     width:70%;
-    margin: 2rem auto 0;
+    margin: 2rem auto 0 ;
 }
 
 /* Sanitize a href so it's not 2002 style link */
