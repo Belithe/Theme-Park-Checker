@@ -9,19 +9,19 @@ try {
     $dbConfig = getDBconfig();
     $conn = new PDO("$dbConfig[4]:host=$dbConfig[0];dbname=$dbConfig[3]", $dbConfig[1], $dbConfig[2]);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+    echo $dbConfig[4];
 } catch (PDOException $e) {
     echo "Failure: " . $e->getMessage();
 }
 
 try {
     $conn->query("CREATE TABLE park (
-    id int(2) NOT NULL AUTO_INCREMENT,
+    id SERIAL NOT NULL AUTO_INCREMENT,
     name varchar(50) NOT NULL,
     type varchar(30) NOT NULL,
     province varchar(20) NOT NULL,
      PRIMARY KEY (id)
-    ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4");
+    ) AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4");
 
     $conn->query("CREATE TABLE info (
     parkId int(2) NOT NULL,
@@ -29,14 +29,14 @@ try {
     exLink varchar(50) NOT NULL,
     PRIMARY KEY (parkId),
     CONSTRAINT infoToPark FOREIGN KEY (parkId) REFERENCES park (id) ON UPDATE CASCADE
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
+    ) DEFAULT CHARSET=utf8mb4");
 
     $conn->query("CREATE TABLE user (
      id int(2) NOT NULL AUTO_INCREMENT,
      username varchar(255) NOT NULL,
      password varchar(255) NOT NULL,
      PRIMARY KEY (id)
-    ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4");
+    ) AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4");
 
     $conn->query("CREATE TABLE user_park_checks (
      parkId int(11) NOT NULL,
