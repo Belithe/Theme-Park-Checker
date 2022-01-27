@@ -15,7 +15,7 @@ try {
 }
 
 try {
-    $conn->query("CREATE TABLE `park` (
+    $conn->query("CREATE TABLE park (
     `id` int(2) NOT NULL AUTO_INCREMENT,
     `name` varchar(50) NOT NULL,
     `type` varchar(30) NOT NULL,
@@ -23,7 +23,7 @@ try {
      PRIMARY KEY (`id`)
     ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4");
 
-    $conn->query("CREATE TABLE `info` (
+    $conn->query("CREATE TABLE info (
     `parkId` int(2) NOT NULL,
     `info` varchar(150) NOT NULL,
     `exLink` varchar(50) NOT NULL,
@@ -31,14 +31,14 @@ try {
     CONSTRAINT `infoToPark` FOREIGN KEY (`parkId`) REFERENCES `park` (`id`) ON UPDATE CASCADE
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
 
-    $conn->query("CREATE TABLE `user` (
+    $conn->query("CREATE TABLE user (
      `id` int(2) NOT NULL AUTO_INCREMENT,
      `username` varchar(255) NOT NULL,
      `password` varchar(255) NOT NULL,
      PRIMARY KEY (`id`)
     ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4");
 
-    $conn->query("CREATE TABLE `user_park_checks` (
+    $conn->query("CREATE TABLE user_park_checks (
      `parkId` int(11) NOT NULL,
      `userId` int(11) NOT NULL,
      `visited` tinyint(1) NOT NULL DEFAULT 0,
