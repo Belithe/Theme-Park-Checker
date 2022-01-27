@@ -72,5 +72,5 @@ try {
            (4, 2, 1)");
 
 } catch (PDOException $e) {
-    echo "Failure3: " . $e->getMessage();
+    //echo "Failure3: " . $e->getMessage();
 }
