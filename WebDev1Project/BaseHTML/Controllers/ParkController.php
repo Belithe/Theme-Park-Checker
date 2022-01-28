@@ -13,6 +13,13 @@ class ParkController {
     function __construct() {
         $this->loader = new DataLoader();
 
+        if(!isset($_SESSION['checked'])) {
+            foreach ($this->loader->translateSelectAllParks() as $entry) {
+                //create an entry in the `checked` session variable for each park
+                $_SESSION['checked'][$entry['id'] . 'Checker'] = 0;
+            }
+        }
+
         //Check if a park is loaded, if so, create a park to save as the currently loaded one
         if(isset($_GET["id"]) && $_GET["id"] != "") {
             foreach($this->loader->translateParkByIdData() as $attribute){
@@ -49,10 +56,9 @@ class ParkController {
             //Check if the session has checked the park's visited column, and set the variable for this
             $entryChecked = "";
 
-            if($_SESSION['checked'][$entry['id'] . 'Checker'] == true) {
+            if($_SESSION['checked'][$entry['id'] . 'Checker'] == 1) {
                 $entryChecked = "checked";
             }
-            echo $_SESSION['checked'][$entry['id'] . 'Checker'];
 
             //Creating the row as a long string to echo
             $rowToInsert = "<tr>";

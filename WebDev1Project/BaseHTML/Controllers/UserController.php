@@ -11,13 +11,6 @@
         function __construct() {
             $this->loader = new DataLoader();
             $this->saver = new DataSaver();
-
-            if(!isset($_SESSION['checked'])) {
-                foreach ($this->loader->translateSelectAllParks() as $entry) {
-                    //create an entry in the `checked` session variable for each park
-                    $_SESSION['checked'][$entry['id'] . 'Checker'] = 0;
-                }
-            }
         }
 
         public function CreateUserSession($id, $name) {

@@ -7,7 +7,7 @@ class DataSaver {
     protected $SQLdb;
 
     function __construct() {
-            // PDO instead of MySqli? Might not work on Heroku otherwise TODO
+            // PDO instead of MySqli? Might not work on Heroku otherwise
             $dbConfig = getDBconfig();
             //mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
             //$this->SQLdb = new mysqli('localhost', 'test', 'hackerman', 'themeparkdb');
