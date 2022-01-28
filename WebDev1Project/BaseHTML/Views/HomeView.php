@@ -20,7 +20,7 @@
     //Check if save post request is made, if so try to do so and report success or failure
     $success = false;
 
-    echo $_POST;
+    print_r($_POST);
 
     if(!empty($_POST["Save"])) {
         $success = $UserController->SaveCurrentSession();
