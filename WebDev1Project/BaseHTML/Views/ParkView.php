@@ -10,6 +10,8 @@
 
     include '../Controllers/InfoController.php';
     include '../Controllers/ParkController.php';
+    echo "hi";
+
     session_start();
     $InfoController = new InfoController();
     $ParkController = new ParkController();
