@@ -44,10 +44,6 @@ class DataSaver {
                     $visited = "true";
                 }
 
-                echo "P:" . $parkId;
-                echo "V:" . $visited;
-                echo "B:" . $bool;
-
                 $statement->bindParam(':parkId', $parkId);
                 $statement->bindParam(':visited', $visited);
 
