@@ -30,7 +30,7 @@
                 foreach($savedSettings as $setting) {
                     print_r($setting);
                     //If the site's park and the db's park are the same, continue
-                    if($setting['Parkid'] == substr($key, 0, 1)) {
+                    if($setting['parkid'] == substr($key, 0, 1)) {
                         //Set the value as checked if the user has it marked as visited, and not if they don't
                         if ($setting['Visited'] == 1) {
                             $_SESSION['checked'][$key] = 1;
