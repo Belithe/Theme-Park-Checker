@@ -27,9 +27,9 @@
                 //Go through every dbside entry under the given userid
                 foreach($savedSettings as $setting) {
                     //If the site's park and the db's park are the same, continue
-                    if($setting['parkId'] == substr($key, 0, 1)) {
+                    if($setting['Parkid'] == substr($key, 0, 1)) {
                         //Set the value as checked if the user has it marked as visited, and not if they don't
-                        if ($setting['visited'] == 1) {
+                        if ($setting['Visited'] == 1) {
                             $_SESSION['checked'][$key] = 1;
                         } else {
                             $_SESSION['checked'][$key] = 0;
