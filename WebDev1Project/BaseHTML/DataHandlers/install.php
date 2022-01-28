@@ -21,7 +21,7 @@ try {
     type varchar(30) NOT NULL,
     province varchar(20) NOT NULL,
      PRIMARY KEY (id)
-    )"); */
+    )");
 
     $conn->query("CREATE TABLE info (
     parkId int NOT NULL,
@@ -29,7 +29,7 @@ try {
     exLink varchar(50) NOT NULL,
     PRIMARY KEY (parkId),
     CONSTRAINT infoToPark FOREIGN KEY (parkId) REFERENCES park (id) ON UPDATE CASCADE
-    )");
+    )");*/
 
     $conn->query("CREATE TABLE users (
      id SERIAL NOT NULL,
@@ -54,13 +54,13 @@ try {
 }
 
 try {
-    $conn->query("INSERT INTO park (name, type, province) 
+    /*$conn->query("INSERT INTO park (name, type, province)
     VALUES ('Archeon', 'Experience Park', 'Zuid-Holland'), 
            ('Attractiepark Slagharen', 'Themepark', 'Overijssel')");
 
     $conn->query("INSERT INTO info (parkId, info, exLink) 
     VALUES (1, 'Testing info!', 'www.testlink.com'), 
-           (2, 'Testing info 2!', 'www.testlink2.com') ");
+           (2, 'Testing info 2!', 'www.testlink2.com') ");*/
 
     $conn->query("INSERT INTO users (username, password) 
     VALUES ('bear', '550a6aee24871befa055ffd52f92eba9'), 
