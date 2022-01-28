@@ -23,7 +23,9 @@
     print_r($_POST);
 
     if(!empty($_POST["Save"])) {
+        print_r($success);
         $success = $UserController->SaveCurrentSession();
+        print_r($success);
     }
 
 ?>
