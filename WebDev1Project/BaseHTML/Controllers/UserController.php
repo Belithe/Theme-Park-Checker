@@ -21,6 +21,8 @@
 
             $savedSettings = $this->loader->translateGetVisitedSettings($id);
 
+            print_r($savedSettings);
+
             //Go through each siteside park entry
             foreach($_SESSION['checked'] as $key => $bool) {
 
