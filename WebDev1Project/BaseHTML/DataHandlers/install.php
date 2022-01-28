@@ -9,7 +9,6 @@ try {
     $dbConfig = getDBconfig();
     $conn = new PDO("$dbConfig[4]:host=$dbConfig[0];dbname=$dbConfig[3]", $dbConfig[1], $dbConfig[2]);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo $dbConfig[4];
 } catch (PDOException $e) {
     echo "Failure: " . $e->getMessage();
 }
@@ -64,11 +63,11 @@ try {
 
     $conn->query("INSERT INTO users (username, password) 
     VALUES ('bear', '550a6aee24871befa055ffd52f92eba9'), 
-           ('cow', 'c9507f538a6e79c9bd6229981d6e05a3')");*/
+           ('cow', 'c9507f538a6e79c9bd6229981d6e05a3')");
 
     $conn->query("INSERT INTO user_park_checks (parkId, userId, visited) 
     VALUES (1, 2, true), 
-           (2, 2, true)");
+           (2, 2, true)");*/
 
 } catch (PDOException $e) {
     //echo "Failure3: " . $e->getMessage();
