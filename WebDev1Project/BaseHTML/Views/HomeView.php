@@ -20,11 +20,7 @@
     //Check if save post request is made, if so try to do so and report success or failure
     $success = false;
 
-    print_r($_POST);
-
-    echo $success;
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
-        echo "hi";
         $success = $UserController->SaveCurrentSession();
     }
 
