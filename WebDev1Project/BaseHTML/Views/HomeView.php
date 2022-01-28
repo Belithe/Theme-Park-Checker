@@ -22,7 +22,7 @@
 
     print_r($_POST);
 
-    if(!empty($_POST["Save"])) {
+    if($_SERVER['REQUEST_METHOD'] === 'POST') {
         print_r($success);
         $success = $UserController->SaveCurrentSession();
         print_r($success);
