@@ -22,8 +22,9 @@
 
     print_r($_POST);
 
+    echo $success;
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
-        print_r($success);
+        echo $success;
         $success = $UserController->SaveCurrentSession();
         print_r($success);
     }
