@@ -62,7 +62,7 @@
                     //validated :)
                     //Load user's settings and go to the home screen
                     $UserController->CreateUserSession($dbUser->getId(), $dbUser->getUsername());
-                    header("Location: ../Views/HomeView.php");
+                    //header("Location: ../Views/HomeView.php"); TODO
                 } else {
                     //return with a warning if pass invalid
                     header("Location: ../Views/LoginView.php?eId=1");

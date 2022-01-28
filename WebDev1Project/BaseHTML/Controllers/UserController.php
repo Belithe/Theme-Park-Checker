@@ -21,13 +21,14 @@
 
             $savedSettings = $this->loader->translateGetVisitedSettings($id);
 
-            print_r($savedSettings);
+
 
             //Go through each siteside park entry
             foreach($_SESSION['checked'] as $key => $bool) {
 
                 //Go through every dbside entry under the given userid
                 foreach($savedSettings as $setting) {
+                    echo $savedSettings;
                     //If the site's park and the db's park are the same, continue
                     if($setting['Parkid'] == substr($key, 0, 1)) {
                         //Set the value as checked if the user has it marked as visited, and not if they don't
