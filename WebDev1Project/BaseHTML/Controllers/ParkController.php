@@ -49,7 +49,7 @@ class ParkController {
             //Check if the session has checked the park's visited column, and set the variable for this
             $entryChecked = "";
 
-            if($_SESSION['checked'][$entry['id'] . 'Checker'] == 1) {
+            if($_SESSION['checked'][$entry['id'] . 'Checker'] == true) {
                 $entryChecked = "checked";
             }
 
