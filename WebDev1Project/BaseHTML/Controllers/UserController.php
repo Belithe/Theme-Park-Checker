@@ -2,13 +2,18 @@
 
     require_once '../DataHandlers/DataLoader.php';
     require_once '../DataHandlers/DataSaver.php';
+    include_once '../Controllers/ParkController.php';
     include_once '../Models/User.php';
 
     class UserController {
         protected $loader;
         protected $saver;
 
+        protected $ParkController;
+
         function __construct() {
+            $this->ParkController = new ParkController();
+
             $this->loader = new DataLoader();
             $this->saver = new DataSaver();
         }
@@ -22,6 +27,9 @@
             $savedSettings = $this->loader->translateGetVisitedSettings($id);
 
 
+            if(!isset($_SESSION['checked'])) {
+                $this->ParkController->fillSessionChecked();
+            }
 
             //Go through each siteside park entry
             foreach($_SESSION['checked'] as $key => $bool) {
@@ -32,7 +40,7 @@
                     //If the site's park and the db's park are the same, continue
                     if($setting['parkid'] == substr($key, 0, 1)) {
                         //Set the value as checked if the user has it marked as visited, and not if they don't
-                        if ($setting['Visited'] == 1) {
+                        if ($setting['visited'] == 1) {
                             $_SESSION['checked'][$key] = 1;
                         } else {
                             $_SESSION['checked'][$key] = 0;

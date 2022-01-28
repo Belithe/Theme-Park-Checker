@@ -14,10 +14,7 @@ class ParkController {
         $this->loader = new DataLoader();
 
         if(!isset($_SESSION['checked'])) {
-            foreach ($this->loader->translateSelectAllParks() as $entry) {
-                //create an entry in the `checked` session variable for each park
-                $_SESSION['checked'][$entry['id'] . 'Checker'] = 0;
-            }
+            $this->fillSessionChecked();
         }
 
         //Check if a park is loaded, if so, create a park to save as the currently loaded one
@@ -31,6 +28,14 @@ class ParkController {
                 $this->currentByIdPark = new Park($loadedId, $loadedName, $loadedType, $loadedProvince);
             }
 
+        }
+    }
+
+    // Fill session checked array
+    public function fillSessionChecked() {
+        foreach ($this->loader->translateSelectAllParks() as $entry) {
+            //create an entry in the `checked` session variable for each park
+            $_SESSION['checked'][$entry['id'] . 'Checker'] = 0;
         }
     }
 
