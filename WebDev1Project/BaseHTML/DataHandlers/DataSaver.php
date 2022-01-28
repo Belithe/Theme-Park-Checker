@@ -39,9 +39,9 @@ class DataSaver {
 
             foreach($checked as $key => $bool) {
                 $parkId = substr($key, 0, 1);
-                $visited = false;
+                $visited = "false";
                 if($bool == 1) {
-                    $visited = true;
+                    $visited = "true";
                 }
 
                 echo "P:" . $parkId;
