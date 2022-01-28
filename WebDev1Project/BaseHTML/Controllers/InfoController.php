@@ -1,7 +1,7 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'].'/WebDev1Project/BaseHTML/Models/Info.php';
-require_once $_SERVER['DOCUMENT_ROOT'].'/WebDev1Project/BaseHTML/DataHandlers/DataLoader.php';
+require_once '../Models/Info.php';
+require_once '../DataHandlers/DataLoader.php';
 
 class InfoController {
 
@@ -15,8 +15,8 @@ class InfoController {
         if(isset($_GET["id"]) && $_GET["id"] != "") {
             foreach($this->loader->translateInfoByIdData() as $attribute){
                  $loadedInfo = $attribute['info'];
-                 $loadedExLink = $attribute['exLink'];
-                 $loadedId = $attribute['parkId'];
+                 $loadedExLink = $attribute['exlink'];
+                 $loadedId = $attribute['parkid'];
             }
 
             $this->currentByIdInfo = new Info($loadedId, $loadedInfo, $loadedExLink);

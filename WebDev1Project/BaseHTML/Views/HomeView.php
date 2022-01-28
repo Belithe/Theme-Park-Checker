@@ -22,6 +22,7 @@
 
     if(!empty($_POST["Save"])) {
         $success = $UserController->SaveCurrentSession();
+        echo $success;
     }
 
 ?>
