@@ -33,7 +33,7 @@ class DataSaver {
     //Create or update user's visited park entries
     public function saveVisitedSettings($userId, $checked) {
         try {
-            $statement = $this->SQLdb->prepare('INSERT INTO user_park_checks (parkId, userId, visited) VALUES (:parkId, :userId, :visited) ON DUPLICATE KEY UPDATE visited = :visited');
+            $statement = $this->SQLdb->prepare('INSERT INTO user_park_checks (parkId, userId, visited) VALUES (:parkId, :userId, :visited) ON CONFLICT (parkId, userId) DO UPDATE SET visited = :visited');
 
             $statement->bindParam(':userId', $userId);
 
