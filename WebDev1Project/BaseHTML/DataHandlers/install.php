@@ -29,7 +29,7 @@ try {
     exLink varchar(50) NOT NULL,
     PRIMARY KEY (parkId),
     CONSTRAINT infoToPark FOREIGN KEY (parkId) REFERENCES park (id) ON UPDATE CASCADE
-    )");*/
+    )");
 
     $conn->query("CREATE TABLE users (
      id SERIAL NOT NULL,
@@ -45,7 +45,7 @@ try {
      PRIMARY KEY (parkId,userId),
      CONSTRAINT parkId FOREIGN KEY (parkId) REFERENCES park (id) ON DELETE CASCADE ON UPDATE CASCADE,
      CONSTRAINT userId FOREIGN KEY (userId) REFERENCES users (id) ON DELETE CASCADE ON UPDATE CASCADE
-    )");
+    )"); */
 
 
 
@@ -60,15 +60,15 @@ try {
 
     $conn->query("INSERT INTO info (parkId, info, exLink) 
     VALUES (1, 'Testing info!', 'www.testlink.com'), 
-           (2, 'Testing info 2!', 'www.testlink2.com') ");*/
+           (2, 'Testing info 2!', 'www.testlink2.com') ");
 
     $conn->query("INSERT INTO users (username, password) 
     VALUES ('bear', '550a6aee24871befa055ffd52f92eba9'), 
-           ('cow', 'c9507f538a6e79c9bd6229981d6e05a3')");
+           ('cow', 'c9507f538a6e79c9bd6229981d6e05a3')");*/
 
     $conn->query("INSERT INTO user_park_checks (parkId, userId, visited) 
-    VALUES (3, 2, true), 
-           (4, 2, true)");
+    VALUES (1, 2, true), 
+           (2, 2, true)");
 
 } catch (PDOException $e) {
     //echo "Failure3: " . $e->getMessage();
