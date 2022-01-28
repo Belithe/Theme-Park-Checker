@@ -52,6 +52,7 @@ class ParkController {
             if($_SESSION['checked'][$entry['id'] . 'Checker'] == true) {
                 $entryChecked = "checked";
             }
+            echo $_SESSION['checked'][$entry['id'] . 'Checker'];
 
             //Creating the row as a long string to echo
             $rowToInsert = "<tr>";
