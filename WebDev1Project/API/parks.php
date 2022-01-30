@@ -2,9 +2,9 @@
 
 try {
     echo "-2-";
-    require "../BaseHTML/Models/Park.php";
+    require_once "../BaseHTML/Models/Park.php";
     echo "-1-";
-    require "../BaseHTML/Controllers/ParkController.php";
+    require_once "../BaseHTML/Controllers/ParkController.php";
     echo "0";
 
     $controller = new ParkController();
