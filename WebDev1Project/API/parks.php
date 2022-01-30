@@ -1,6 +1,4 @@
-<head title="Ticketstubs API Endpoint">
-    <title>Ticketstubs API Endpoint</title>
-</head>
+
 
 <?php
 
