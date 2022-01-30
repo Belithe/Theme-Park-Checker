@@ -29,7 +29,8 @@
                 if($saver->createNewUser($enteredUser, $cryptPass) && $saver->createNewVisitedSetting($loader->translateGetUserIdByName($enteredUser))) {
                     header("Location: ../Views/LoginView.php?newReg=true");
                 } else {
-                    header("Location: ../Views/LoginView.php?eId=2");
+                    var_dump(loader->translateGetUserIdByName($enteredUser));
+                    //header("Location: ../Views/LoginView.php?eId=2");
                 }
             } else {
                 header("Location: ../Views/LoginView.php?eId=3");
