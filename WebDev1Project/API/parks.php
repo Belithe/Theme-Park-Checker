@@ -10,6 +10,8 @@ $controller = new ParkController();
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     SendResponse(200, "List of parks found.", $controller->GetAllParks());
 
+} else {
+    SendResponse(405, "Invalid request type.", null);
 }
 
 function SendResponse($statusCode, $statusMsg, $data) {

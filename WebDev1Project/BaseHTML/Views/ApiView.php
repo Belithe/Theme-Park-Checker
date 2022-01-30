@@ -17,6 +17,7 @@
 
 
 <?php
+try {
     $url = "https://theme-park-checker.herokuapp.com/API/parks.php";
 
     $client = curl_init($url);
@@ -24,7 +25,11 @@
     $jsonData = curl_exec($client);
 
     $apiData = json_decode($jsonData);
+} catch (Exception $e) {
+    echo $e;
+}
 ?>
 <p>
-    <?php echo $apiData; ?>
+    <?php echo $apiData;
+            echo "hi";?>
 </p>
