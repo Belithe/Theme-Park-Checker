@@ -8,8 +8,8 @@
 <?php
     //load need controllers, start the session
 
-    include '../Controllers/InfoController.php';
-    include '../Controllers/ParkController.php';
+    include $_SERVER['DOCUMENT_ROOT'] . 'BaseHTML/Controllers/InfoController.php';
+    include $_SERVER['DOCUMENT_ROOT'] . 'BaseHTML/Controllers/ParkController.php';
 
     session_start();
     $InfoController = new InfoController();

@@ -1,7 +1,7 @@
 <?php
 
-require_once '../Models/Info.php';
-require_once '../DataHandlers/DataLoader.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . 'BaseHTML/Models/Info.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . 'BaseHTML/DataHandlers/DataLoader.php';
 
 class InfoController {
 

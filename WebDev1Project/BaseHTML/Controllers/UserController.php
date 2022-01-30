@@ -1,9 +1,9 @@
 <?php
 
-    require_once '../DataHandlers/DataLoader.php';
-    require_once '../DataHandlers/DataSaver.php';
-    include_once '../Controllers/ParkController.php';
-    include_once '../Models/User.php';
+    require_once $_SERVER['DOCUMENT_ROOT'] . 'BaseHTML/DataHandlers/DataLoader.php';
+    require_once $_SERVER['DOCUMENT_ROOT'] . 'BaseHTML/DataHandlers/DataSaver.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . 'BaseHTML/Controllers/ParkController.php';
+    include_once $_SERVER['DOCUMENT_ROOT'] . 'BaseHTML/Models/User.php';
 
     class UserController {
         protected $loader;
