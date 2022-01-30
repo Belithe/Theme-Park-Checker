@@ -15,6 +15,6 @@ try {
         echo "Invalid request type";
     }
 } catch (Exception $e) {
-    var_dump($e);
+    ?> <p> hi </p> <?php
 }
 ?>
