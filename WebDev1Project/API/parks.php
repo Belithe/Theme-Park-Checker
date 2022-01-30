@@ -1,27 +1,20 @@
 <?php
 
+try {
+    require "../BaseHTML/Models/Park.php";
+    require "../BaseHTML/Controllers/ParkController.php";
 
-require "../BaseHTML/Models/Park.php";
-require "../BaseHTML/Controllers/ParkController.php";
+    $controller = new ParkController();
 
-$controller = new ParkController();
-
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-    SendResponse(200, "List of parks found.", $controller->GetAllParks());
-
-} else {
-    SendResponse(405, "Invalid request type.", null);
+    if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+        $parks = $controller->GetAllParks();
+        $json = json_encode($parks);
+        header('Content-type:application/json; charset=utf-8');
+        echo $json;
+    } else {
+        echo "Invalid request type";
+    }
+} catch (Exception $e) {
+    var_dump($e);
 }
-
-function SendResponse($statusCode, $statusMsg, $data) {
-    $response['status'] = $statusCode;
-    $response['status-message'] = $statusMsg;
-    $response['data'] = $data;
-
-    $json = json_encode($response);
-    header('Content-type:application/json; charset=utf-8');
-    echo $json;
-}
-
-
 ?>
