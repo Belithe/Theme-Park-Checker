@@ -84,14 +84,14 @@ class DataSaver {
                 foreach ($users as $id) {
                     $query .= ' (:' . $parkId . ', :' . $id['id'] . ', false)';
                 }
-
+                echo $query;
                 $statement = $this->SQLdb->prepare($query);
 
                 foreach ($users as $id) {
                     $statement->bindParam(':' . $parkId, $parkId);
                     $statement->bindParam(':' . $id['id'], $id['id']);
                 }
-
+                var_dump($statement);
                 $statement->execute();
                 return true;
             } else {
