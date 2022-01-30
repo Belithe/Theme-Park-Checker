@@ -28,6 +28,13 @@ class DataLoader {
         //return mysqli_query($this->SQLdb, $selectAllQuery);
     }
 
+    private function selectUserIds() {
+        $statement = $this->SQLdb->prepare('SELECT id FROM users');
+
+        $statement->execute();
+        return $statement;
+    }
+
     //select park from a get variable (Maybe change to given variable? TODO)
     private function selectParkById() {
         $requestedId = htmlspecialchars($_GET["id"]);
@@ -79,12 +86,27 @@ class DataLoader {
         return $statement;
     }
 
+    private function getUserIdByUsername($name) {
+        $sanitizedName = htmlspecialchars($name);
+
+        $statement = $this->SQLdb->prepare('SELECT id FROM users WHERE username == ":name"');
+        $statement->bindParam(':name', $sanitizedName);
+
+        $statement->execute();
+        return $statement;
+
+    }
+
 
 
     //translate any data returned by select statements, seperate for easier editing if needed
     public function translateSelectAllParks() {
         return $this->selectParks()->fetchAll();
 
+    }
+
+    public function translateSelectAllUserIds() {
+        return $this->selectUserIds()->fetchAll();
     }
 
     public function translateParkByIdData() {
@@ -102,6 +124,10 @@ class DataLoader {
 
     public function translateGetVisitedSettings($userId) {
         return $this->getVisitedSettings($userId)->fetchAll();
+    }
+
+    public function translateGetUserIdByName($username) {
+        return $this->getUserIdByUsername($username)->fetchAll();
     }
 }
 
