@@ -89,7 +89,7 @@ class DataLoader {
     private function getUserIdByUsername($name) {
         $sanitizedName = htmlspecialchars($name);
 
-        $statement = $this->SQLdb->prepare('SELECT id FROM users WHERE username == :name');
+        $statement = $this->SQLdb->prepare('SELECT id FROM users WHERE username = :name');
         $statement->bindParam(':name', $sanitizedName);
 
         $statement->execute();
