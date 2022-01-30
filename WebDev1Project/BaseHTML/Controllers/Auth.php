@@ -1,8 +1,8 @@
 <?php
 
-    include $_SERVER['DOCUMENT_ROOT'] . 'BaseHTML/Controllers/UserController.php';
-    require_once $_SERVER['DOCUMENT_ROOT'] . 'BaseHTML/DataHandlers/DataLoader.php';
-    require_once $_SERVER['DOCUMENT_ROOT'] . 'BaseHTML/DataHandlers/DataSaver.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/BaseHTML/Controllers/UserController.php';
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/BaseHTML/DataHandlers/DataLoader.php';
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/BaseHTML/DataHandlers/DataSaver.php';
 
     session_start();
 

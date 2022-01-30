@@ -9,8 +9,8 @@
 <?php
     //load necessary controllers and start session
 
-    include $_SERVER['DOCUMENT_ROOT'] . 'BaseHTML/Controllers/ParkController.php';
-    include $_SERVER['DOCUMENT_ROOT'] . 'BaseHTML/Controllers/UserController.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/BaseHTML/Controllers/ParkController.php';
+    include $_SERVER['DOCUMENT_ROOT'] . '/BaseHTML/Controllers/UserController.php';
 
     session_start();
 

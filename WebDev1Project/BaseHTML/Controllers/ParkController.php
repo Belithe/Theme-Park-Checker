@@ -1,7 +1,7 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'] . 'BaseHTML/Models/Park.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . 'BaseHTML/DataHandlers/DataLoader.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/BaseHTML/Models/Park.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/BaseHTML/DataHandlers/DataLoader.php';
 
 
 class ParkController {
