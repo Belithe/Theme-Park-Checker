@@ -30,6 +30,6 @@ try {
 }
 ?>
 <p>
-    <?php echo $apiData;
+    <?php var_dump($apiData);
             echo "hi";?>
 </p>
