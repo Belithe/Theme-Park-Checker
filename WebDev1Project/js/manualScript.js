@@ -8,3 +8,7 @@ function handlePopUp() {
 function hide() {
     document.getElementById('confirmPopup').style.visibility = 'hidden';
 }
+
+function saveVisitedAPI() {
+
+}

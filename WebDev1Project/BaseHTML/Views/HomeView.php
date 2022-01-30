@@ -59,11 +59,11 @@
         <input type="submit" value="Save" name="Save" class="btn btn-secondary shadow-sm mt-md-3"/>
         <?php
         //if the error id is set, generate error message, currently unused? TODO
-        if(isset($_GET['eId'])) {
-            if ($_GET['eId'] == 4) {
-                echo "<p class='text-danger'>Please mark at least one visited park.</p>";
-            }
-        }
+        //if(isset($_GET['eId'])) {
+           // if ($_GET['eId'] == 4) {
+          //      echo "<p class='text-danger'>Please mark at least one visited park.</p>";
+         //   }
+     //   }
         ?>
     </form>
 </section>
