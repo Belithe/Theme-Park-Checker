@@ -32,12 +32,8 @@
     <h1><a class="clean-link" href="HomeView.php">Ticketstubs</a></h1>
     <h2>Main Page</h2>
     <p class="lh-sm">Welcome to ParkChecker!<br>Login below to track the parks you have visited!</p>
-    <a href="LoginView.php">
-        <button type="button" class="btn btn-primary"> Login!</button>
-    </a>
-    <a href="ApiView.php">
-        <button type="button" class="btn btn-secondary">Api</button>
-    </a>
+    <a href="LoginView.php"><button type="button" class="btn btn-primary"> Login!</button></a>
+    <a href="ApiView.php"><button type="button" class="btn btn-secondary">Api</button></a>
 </section>
 
 <!--Create form with table with as many rows as needed, generation of rows handled by Park Controller, sends save post request to self to handle at top  -->
