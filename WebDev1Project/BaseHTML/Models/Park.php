@@ -1,6 +1,6 @@
 <?php
 
-class Park
+class Park implements \JsonSerializable
 {
     private $id;
     private $name;
@@ -12,6 +12,11 @@ class Park
         $this->name = $givenName;
         $this->type = $givenType;
         $this->province = $givenProvince;
+    }
+
+    function jsonSerialize()
+    {
+        return get_object_vars($this);
     }
 
     // ID getter
