@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <head title="Ticketstubs">
-    <link rel="stylesheet" href="<?php echo $_SERVER['DOCUMENT_ROOT'] . '/css/bootstrap.css'?>">
-    <link rel="stylesheet" href="<?php echo $_SERVER['DOCUMENT_ROOT'] . '/css/manualStyle.css'?>">
-    <script src="<?php echo $_SERVER['DOCUMENT_ROOT'] . '/js/manualScript.js'?>"></script>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/manualStyle.css">
+    <script src="/js/manualScript.js"></script>
     <title>Ticketstubs</title>
 </head>
 
