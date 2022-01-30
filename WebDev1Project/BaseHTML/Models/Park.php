@@ -15,6 +15,7 @@ class Park
     }
 
     // ID getter
+
     public function getId()
     {
         return $this->id;

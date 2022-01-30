@@ -31,11 +31,21 @@ class ParkController {
         }
     }
 
+    public function GetAllParks() {
+
+        foreach($this->loader->translateSelectAllParks() as $entry) {
+                $parkToAdd = new Park($entry['id'], $entry['name'], $entry['type'], $entry['province']);
+                $parks[$entry['id']] = $parkToAdd;
+        }
+
+        return $parks;
+    }
+
     // Fill session checked array
     public function fillSessionChecked() {
-        foreach ($this->loader->translateSelectAllParks() as $entry) {
+        foreach ($this->GetAllParks() as $entry) {
             //create an entry in the `checked` session variable for each park
-            $_SESSION['checked'][$entry['id'] . 'Checker'] = 0;
+            $_SESSION['checked'][$entry->getId() . 'Checker'] = 0;
         }
     }
 
@@ -56,25 +66,25 @@ class ParkController {
     public function insertParkData() {
 
         //Load the saved parks from DB and create a table row for it
-        foreach ($this->loader->translateSelectAllParks() as $entry) {
+        foreach ($this->GetAllParks() as $entry) {
 
             //Check if the session has checked the park's visited column, and set the variable for this
             $entryChecked = "";
 
-            if($_SESSION['checked'][$entry['id'] . 'Checker'] == 1) {
+            if($_SESSION['checked'][$entry->getId() . 'Checker'] == 1) {
                 $entryChecked = "checked";
             }
 
             //Creating the row as a long string to echo
             $rowToInsert = "<tr>";
             //Load variables from database entry
-            $rowToInsert .= '<td>' . $entry['name'] . '</td>';
-            $rowToInsert .= '<td>' . $entry['type'] . '</td>';
-            $rowToInsert .= '<td>' . $entry['province'] . '</td>';
+            $rowToInsert .= '<td>' . $entry->getName() . '</td>';
+            $rowToInsert .= '<td>' . $entry->getType() . '</td>';
+            $rowToInsert .= '<td>' . $entry->getProvince() . '</td>';
             //Create a link to Parkview with the matching park id
-            $rowToInsert .= '<td> <a href="../Views/ParkView.php?id='. $entry["id"] . '">' . $entry['name'] . ' Info </a>' . '</td>';
+            $rowToInsert .= '<td> <a href="../Views/ParkView.php?id='. $entry->getId() . '">' . $entry->getName() . ' Info </a>' . '</td>';
             //Create checking input, pre-checked according to the entryChecked value
-            $rowToInsert .= '<td><input class="form-check-input" type="checkbox" name="' . $entry['id'] . 'Checker" value="" '. $entryChecked . '></td>';
+            $rowToInsert .= '<td><input class="form-check-input" type="checkbox" name="' . $entry->getId() . 'Checker" value="" '. $entryChecked . '></td>';
 
             //Insert the row
             echo $rowToInsert;
