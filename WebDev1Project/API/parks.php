@@ -1,6 +1,5 @@
 <?php
 
-header("Content-Type:application/json");
 
 require "../BaseHTML/Models/Park.php";
 require "../BaseHTML/Controllers/ParkController.php";
@@ -15,13 +14,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 }
 
 function SendResponse($statusCode, $statusMsg, $data) {
-    header("HTTP/1.1 " . $statusCode);
-
     $response['status'] = $statusCode;
     $response['status-message'] = $statusMsg;
     $response['data'] = $data;
 
     $json = json_encode($response);
+    header('Content-type:application/json; charset=utf-8');
     echo $json;
 }
 
