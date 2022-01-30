@@ -68,7 +68,7 @@ class DataSaver {
                 foreach ($parks as $park) {
                     $query .= ' (:' . $park['id'] . ', ' . $userId . ', false),';
                 }
-
+                $query = substr($query, 0, -1);
                 $statement = $this->SQLdb->prepare($query);
 
                 foreach ($parks as $park) {
