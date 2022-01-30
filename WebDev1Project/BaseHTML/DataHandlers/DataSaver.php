@@ -66,13 +66,13 @@ class DataSaver {
                 $query = 'INSERT INTO user_park_checks(parkId, userId, visited) VALUES';
 
                 foreach ($parks as $park) {
-                    $query .= ' (:' . $park['id'] . ', ' . $userId . ', false)';
+                    $query .= ' (:' . $park['id'] . ', ' . $userId . ', false),';
                 }
 
                 $statement = $this->SQLdb->prepare($query);
 
                 foreach ($parks as $park) {
-                    $statement->bindParam(':' . $park['id'], $park['id']);
+                    $statement->bindParam(':' . $park['id'], $park["id"]);
                 }
 
                 $statement->execute();
@@ -82,16 +82,16 @@ class DataSaver {
                 $query = 'INSERT INTO user_park_checks(parkId, userId, visited) VALUES';
 
                 foreach ($users as $id) {
-                    $query .= ' (:' . $parkId . ', :' . $id['id'] . ', false)';
+                    $query .= ' (:' . $parkId . ', :' . $id['id'] . ', false),';
                 }
-                echo $query;
+                $query = subtr($query, 0, -1);
                 $statement = $this->SQLdb->prepare($query);
 
                 foreach ($users as $id) {
                     $statement->bindParam(':' . $parkId, $parkId);
                     $statement->bindParam(':' . $id['id'], $id['id']);
                 }
-                var_dump($statement);
+
                 $statement->execute();
                 return true;
             } else {
