@@ -1,6 +1,6 @@
 <head title="Ticketstubs">
-    <link rel="stylesheet" href=<?php echo $_SERVER['DOCUMENT_ROOT'] . '/BaseHTML/css/bootstrap.css'?>>
-    <link rel="stylesheet" href=<?php echo $_SERVER['DOCUMENT_ROOT'] . '/BaseHTML/css/manualStyle.css'?>>
+    <link rel="stylesheet" href=<?php echo $_SERVER['DOCUMENT_ROOT'] . 'L/css/bootstrap.css'?>>
+    <link rel="stylesheet" href=<?php echo $_SERVER['DOCUMENT_ROOT'] . '/css/manualStyle.css'?>>
     <script src=<?php echo $_SERVER['DOCUMENT_ROOT'] . '/js/manualScript.js'?>></script>
     <title>Ticketstubs</title>
 </head>
@@ -11,8 +11,8 @@
 
 <section class="card-header text-center">
     <h1><a class="clean-link" href="HomeView.php">Ticketstubs</a></h1>
-    <h2>Login Page</h2>
-    <p class="lh-sm">Welcome to the login page!<br>Enter your login credentials below to log in.<br>Don't have an account yet? Register now!</p>
+    <h2>API Page</h2>
+    <p class="lh-sm">Welcome to the API view page.<br>The /API/parks.php endpoint is sent a GET request.<br>This is merely a showcase of the API.</p>
 </section>
 
 
@@ -26,6 +26,5 @@
     $apiData = json_decode($jsonData);
 ?>
 <p>
-    <?php var_dump($apiData);
-            echo "hi";?>
+    <?php echo $apiData["1"] ?>
 </p>
