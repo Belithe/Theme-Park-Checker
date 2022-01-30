@@ -1,6 +1,6 @@
 <?php
 
-include "DataLoader.php";
+include_once "DataLoader.php";
 require_once("dbconfig.php");
 
 class DataSaver {
