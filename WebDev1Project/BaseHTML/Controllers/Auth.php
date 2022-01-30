@@ -26,7 +26,7 @@
                 $cryptPass = md5($enteredPass);
 
                 //Create a new user in the db, and check if it has succeeded
-                if($saver->createNewUser($enteredUser, $cryptPass) && $saver->createNewVisitedSetting($loader->translateGetUserIdByName($enteredUser))) {
+                if($saver->createNewUser($enteredUser, $cryptPass) && $saver->createNewVisitedSetting($loader->translateGetUserIdByName($enteredUser)['id'])) {
                     header("Location: ../Views/LoginView.php?newReg=true");
                 } else {
                     header("Location: ../Views/LoginView.php?eId=2");

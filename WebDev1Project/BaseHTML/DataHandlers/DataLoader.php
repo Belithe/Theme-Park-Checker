@@ -127,7 +127,8 @@ class DataLoader {
     }
 
     public function translateGetUserIdByName($username) {
-        return $this->getUserIdByUsername($username)->fetchAll();
+        $array = $this->getUserIdByUsername($username)->fetchAll();
+        return $array[0]['id'];
     }
 }
 

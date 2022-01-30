@@ -66,14 +66,13 @@ class DataSaver {
                 $query = 'INSERT INTO user_park_checks(parkId, userId, visited) VALUES';
 
                 foreach ($parks as $park) {
-                    $query .= ' (:' . $park['id'] . ', :' . $userId . ', false)';
+                    $query .= ' (:' . $park['id'] . ', ' . $userId . ', false)';
                 }
 
                 $statement = $this->SQLdb->prepare($query);
 
                 foreach ($parks as $park) {
                     $statement->bindParam(':' . $park['id'], $park['id']);
-                    $statement->bindParam(':' . $userId, $userId);
                 }
 
                 $statement->execute();
@@ -99,6 +98,7 @@ class DataSaver {
                 return false;
             }
         } catch (PDOException $e) {
+
             return false;
         }
     }
