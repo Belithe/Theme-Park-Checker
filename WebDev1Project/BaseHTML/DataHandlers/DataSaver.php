@@ -98,7 +98,7 @@ class DataSaver {
                 return false;
             }
         } catch (PDOException $e) {
-
+            echo $e;
             return false;
         }
     }
